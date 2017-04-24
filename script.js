@@ -1,4 +1,10 @@
-var words = [
+var app = angular.module("loremSimpson", []);
+
+app.controller('loremController', ['$scope', '$timeout', '$interval', function($scope, $timeout, $interval){
+
+$scope.test = "wajk";
+
+ $scope.wordArray = [
   "....sign of evil number four ",
   "0 days without a suicide ",
   "a law requiring ducks to wear long pants ",
@@ -108,7 +114,6 @@ var words = [
   "four minutes. ",
   "frinkahedron ",
   "fudrucker ",
-  "führerific ",
   "gamblor ",
   "gangsta city ",
   "garbagewater ",
@@ -339,33 +344,62 @@ var $container = document.createElement("div");
 $container.className = "container";
 document.body.appendChild($container);
 
+var linebreak = document.createElement("br");
+
+linebreak.className = "linebreak";
 
 var $paragraph = document.createElement("p");
 $paragraph.className = "paragraph";
 $container.append($paragraph);
 
-var $paragraphText = [];
+
+$scope.paragraphText = [];
 var randomWordNumber;
 
-function loremSimpson() {
-    wordNum = document.getElementById("wordNumId").value - 4;
+$(".refresh").click(function(){
+  $(".paragraph").fadeOut(500);
+    $timeout(function(){
+      $scope.loremSimpson();
+    }, 501);
+      $(".paragraph").fadeIn();
+          //   $(this).text('refresh');
 
-    $paragraphText = ["Lorem Simpson ", "perfectly cromulent "];
+
+//   console.log("whoa");
+//   $(".paragraph").fadeOut();
+// $scope.loremSimpson();
+//   $(".paragraph").fadeIn();
+});
+
+$scope.wordCount = 70;
+$scope.parCount = 3;
+
+ $scope.loremSimpson = function(){
+
+    wordNum = $scope.wordCount - 5;
+
+    $scope.paragraphText = ["Lorem Simpson ", "perfectly cromulent "];
     $(".paragraph").empty();
+
+    // $scope.paragraphText.push(".");
+
+for ( var par = 0; par < $scope.parCount; par++){
+
     for (var i = 0; i < wordNum; i++) {
 
-        randomWordNumber = Math.floor((Math.random() * 233) + 1);
+        randomWordNumber = Math.floor((Math.random() * 333) + 1);
 
-        $paragraphText.push(words[randomWordNumber]);
-
-    }
-    $paragraphText.push(".");
-
-
-    for (var j = 0; j < $paragraphText.length; j++) {
-
-        $paragraph.append($paragraphText[j]);
+        $scope.paragraphText.push($scope.wordArray[randomWordNumber]);
+            $paragraph.append($scope.paragraphText[i]);
 
     }
+
+
+    $paragraph.appendChild(linebreak.cloneNode());
+    $paragraph.appendChild(linebreak.cloneNode());
+    $scope.paragraphText = [];
+};
 
 };
+
+}]);

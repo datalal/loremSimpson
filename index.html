@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="loremSimpson" ng-controller="loremController">
 
 <head>
   <script>
@@ -18,15 +18,15 @@
     <meta name="Lorem Simpson" content="A Lorem Ipsum generator for Simpsons fans">
 </head>
 
-      <body onload="loremSimpson()">
+      <body ng-init="loremSimpson()">
 
 
-          <h1> Lorem Simpson </h1>
+          <h1> Lorem Simpson</h1>
           <h3>A Lorem Ipsum generator for Simpsons fans</h3> <br>
-          Words per Paragraph (Approx.) <input id="wordNumId" type="number" value="70" size="10"> <button onclick="loremSimpson()">Refresh</button> <br />
+          Words per Paragraph (Approx.) <input id="wordNumId" type="number" size="10" ng-model="wordCount"> # of paragraphs <input id="parNumId" type="number" size="10" ng-model="parCount"> <button class="refresh">Refresh</button> <br />
           <p></p>
 
-
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
           <script src="script.js"></script>
       </body>
