@@ -204,7 +204,7 @@ var words = [
   "one way passage to the boneyard ",
   "onetuplet ",
   "oodily ",
-  "outrageous paradigm ",
+  "totally outrageous paradigm ",
   "ovulicious ",
   "paradigm ",
   "paraplegiarino ",
@@ -359,6 +359,8 @@ function loremSimpson() {
         $paragraphText.push(words[randomWordNumber]);
 
     }
+    $paragraphText.push(".");
+
 
     for (var j = 0; j < $paragraphText.length; j++) {
 
