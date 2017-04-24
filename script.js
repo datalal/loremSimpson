@@ -361,14 +361,9 @@ $(".refresh").click(function(){
     $timeout(function(){
       $scope.loremSimpson();
     }, 501);
-      $(".paragraph").fadeIn();
+      $(".paragraph").fadeIn(500);
           //   $(this).text('refresh');
 
-
-//   console.log("whoa");
-//   $(".paragraph").fadeOut();
-// $scope.loremSimpson();
-//   $(".paragraph").fadeIn();
 });
 
 $scope.wordCount = 70;
@@ -381,7 +376,6 @@ $scope.parCount = 3;
     $scope.paragraphText = ["Lorem Simpson ", "perfectly cromulent "];
     $(".paragraph").empty();
 
-    // $scope.paragraphText.push(".");
 
 for ( var par = 0; par < $scope.parCount; par++){
 
